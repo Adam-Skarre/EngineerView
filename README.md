@@ -4,6 +4,8 @@ Research for the built world. A Skar Technologies company.
 
 This repository contains the static Engineer View publication and research library.
 
+Production domain: [engineerview.com](https://engineerview.com)
+
 ## Publication structure
 
 - `index.html` — institutional homepage
@@ -15,3 +17,5 @@ This repository contains the static Engineer View publication and research libra
 - `industrial-readiness.html` — Field Guide EV–003
 
 The site has no build step. Open `index.html` locally or serve the directory with any static web server. Published quantitative claims link directly to their primary source records.
+
+The root `CNAME`, `robots.txt`, and `sitemap.xml` files prepare the repository for standalone GitHub Pages hosting on `engineerview.com`.
