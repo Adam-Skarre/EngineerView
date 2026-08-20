@@ -8,9 +8,9 @@ Production domain: [engineerview.com](https://engineerview.com)
 
 ## Publication structure
 
-- `index.html` — production shell for the cinematic React landing page
-- `src/landing.jsx` — landing-page interface, motion, navigation, and video playback
-- `assets/landing.css` — landing-page visual system and responsive behavior
+- `index.html` — production shell for the React research portal
+- `src/landing.jsx` — research discovery, filtering, navigation, motion, and video playback
+- `assets/landing.css` — institutional visual system and responsive behavior
 - `assets/landing.js` — production bundle served by GitHub Pages
 - `research.html` — searchable research library
 - `topics.html` — coverage areas
