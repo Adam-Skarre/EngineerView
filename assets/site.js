@@ -3,9 +3,48 @@
   const nav = document.querySelector('[data-nav]');
   menu?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
-    menu.textContent = open ? 'Close' : 'Menu';
+    if (!menu.classList.contains('evx-menu')) menu.textContent = open ? 'Close' : 'Menu';
+    menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     menu.setAttribute('aria-expanded', String(open));
   });
+
+  const revealItems = [...document.querySelectorAll('[data-reveal]')];
+  if (revealItems.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('motion-ready');
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  const wordReveal = document.querySelector('[data-word-reveal]');
+  if (wordReveal) {
+    const words = wordReveal.textContent.trim().split(/\s+/);
+    wordReveal.replaceChildren(...words.flatMap((word, index) => {
+      const span = document.createElement('span');
+      span.className = 'word';
+      span.textContent = word;
+      return index === words.length - 1 ? [span] : [span, document.createTextNode(' ')];
+    }));
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      wordReveal.querySelectorAll('.word').forEach(word => word.classList.add('active'));
+    } else {
+      const wordObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          [...wordReveal.querySelectorAll('.word')].forEach((word, index) => {
+            setTimeout(() => word.classList.add('active'), index * 45);
+          });
+          wordObserver.disconnect();
+        });
+      }, { rootMargin: '0px 0px -24% 0px', threshold: 0.2 });
+      wordObserver.observe(wordReveal);
+    }
+  }
 
   const filterButtons = [...document.querySelectorAll('[data-filter]')];
   const stories = [...document.querySelectorAll('[data-library] [data-topic]')];
