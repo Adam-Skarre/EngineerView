@@ -215,7 +215,7 @@ function UtilityBar() {
   return (
     <div className="utility-bar">
       <div className="shell utility-bar-inner">
-        <span>Engineer View · Independent market intelligence</span>
+        <span>Engineer View · Market intelligence</span>
         <a href="https://skartech.com">
           A Skar Technologies company <ArrowUpRight size={12} />
         </a>
