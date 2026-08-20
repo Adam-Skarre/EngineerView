@@ -1,4 +1,6 @@
 (() => {
+  document.documentElement.classList.add('js');
+
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
   menu?.addEventListener('click', () => {
@@ -19,6 +21,57 @@
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  const institutionalMotionItems = [...document.querySelectorAll([
+    '.library-hero > *',
+    '.about-hero > *',
+    '.topic-panels article',
+    '.method-principles article',
+    '.research-process > header > *',
+    '.research-process article',
+    '.manifesto > *',
+    '.standard-grid article',
+    '.company-note > *',
+    '.about-close > *',
+    '.market-view-hero-copy > *',
+    '.market-view-definition > *',
+    '.section-head > *',
+    '.market-edition-feature',
+    '.market-view-stack a',
+    '.market-lens-grid article',
+    '.library-list article',
+    '.report-hero > *',
+    '.metric-grid article',
+    '.report-body > section',
+    '.footer > div',
+  ].join(','))];
+
+  if (institutionalMotionItems.length) {
+    institutionalMotionItems.forEach((item, index) => {
+      item.classList.add('institutional-motion');
+      item.style.setProperty('--motion-order', String(index % 5));
+    });
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      institutionalMotionItems.forEach(item => item.classList.add('motion-visible'));
+    } else {
+      const institutionalObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('motion-visible');
+          institutionalObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -7% 0px', threshold: 0.08 });
+      institutionalMotionItems.forEach(item => institutionalObserver.observe(item));
+    }
+  }
+
+  const header = document.querySelector('.masthead');
+  if (header) {
+    const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    updateHeader();
+    addEventListener('scroll', updateHeader, { passive: true });
   }
 
   const wordReveal = document.querySelector('[data-word-reveal]');

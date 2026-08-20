@@ -208,3 +208,27 @@ body:not(.evx-home) a:focus-visible,body:not(.evx-home) button:focus-visible,bod
   .footer{padding-top:56px;padding-bottom:56px}
 }
 @media(prefers-reduced-motion:reduce){body:not(.evx-home) *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Institutional motion layer */
+body:not(.evx-home) .masthead{transition:height .35s ease,box-shadow .35s ease,background .35s ease}
+body:not(.evx-home) .masthead.is-scrolled{box-shadow:0 14px 38px rgba(48,8,12,.1);background:rgba(250,247,240,.985)}
+.js body:not(.evx-home) .institutional-motion{opacity:0;transform:translate3d(0,34px,0);filter:blur(5px);transition:opacity .72s cubic-bezier(.22,.8,.26,1),transform .72s cubic-bezier(.22,.8,.26,1),filter .72s cubic-bezier(.22,.8,.26,1);transition-delay:calc(var(--motion-order,0) * 55ms);will-change:opacity,transform,filter}
+.js body:not(.evx-home) .institutional-motion.motion-visible{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.js body:not(.evx-home) .report-hero>.institutional-motion{transform:translate3d(0,26px,0)}
+.js body:not(.evx-home) .report-hero>.institutional-motion.motion-visible{transform:translate3d(0,0,0)}
+.topic-panels article,.method-principles article,.market-view-stack a,.market-lens-grid article,.library-list article,.standard-grid article{transition:color .3s ease,background .3s ease,border-color .3s ease,transform .4s cubic-bezier(.22,.8,.26,1),box-shadow .4s ease}
+.topic-panels article:hover,.method-principles article:hover,.market-view-stack a:hover,.market-lens-grid article:hover,.standard-grid article:hover{transform:translateY(-7px);box-shadow:0 22px 48px rgba(48,8,12,.09);z-index:2}
+.library-list article:hover{transform:translateX(7px)}
+.library-hero:after,.about-hero:after{animation:editorialDrift 18s ease-in-out infinite alternate}
+.report-hero:after{animation:reportGridDrift 18s linear infinite}
+.engineer-lens:before{animation:lensTurn 24s linear infinite}
+.engineer-lens:after{animation:lensTurn 15s linear infinite reverse}
+.engineer-lens>span{animation:signalPulse 2.8s ease-in-out infinite}
+.engineer-lens>span:nth-of-type(2){animation-delay:.65s}.engineer-lens>span:nth-of-type(3){animation-delay:1.3s}
+@keyframes editorialDrift{from{transform:translate3d(-1.5%,0,0)}to{transform:translate3d(1.5%,1.5%,0)}}
+@keyframes reportGridDrift{to{background-position:144px 0}}
+@keyframes signalPulse{0%,100%{transform:scale(.82);opacity:.65}50%{transform:scale(1.35);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .js body:not(.evx-home) .institutional-motion{opacity:1;transform:none;filter:none;will-change:auto}
+  .library-hero:after,.about-hero:after,.report-hero:after,.engineer-lens:before,.engineer-lens:after,.engineer-lens>span{animation:none}
+}
