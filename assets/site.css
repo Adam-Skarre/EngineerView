@@ -52,7 +52,9 @@ body:not(.evx-home) a,body:not(.evx-home) button{transition:color .25s ease,back
 .institution-bar{height:32px;padding:0 max(24px,calc((100vw - 1380px)/2));background:#1b0305;color:#cbb9b1;border-bottom:1px solid rgba(255,255,255,.12)}
 .institution-bar a{color:#fff}
 .masthead{height:102px;padding:20px max(24px,calc((100vw - 1380px)/2)) 16px;background:rgba(250,247,240,.95);backdrop-filter:blur(20px);position:sticky;top:0;z-index:40;border-color:var(--line)}
-.wordmark{font-size:clamp(22px,2vw,29px);letter-spacing:-.065em;font-weight:700}
+.wordmark{align-items:center;gap:12px;font-size:clamp(22px,2vw,29px);letter-spacing:-.065em;font-weight:700}
+.wordmark::before{content:"";display:block;flex:0 0 38px;width:38px;height:38px;background:url('engineer-view-mark.png') center/contain no-repeat}
+.wordmark.light::before{filter:brightness(0) invert(1)}
 .wordmark i{color:var(--copper)}
 .nav{gap:30px;font-size:12px}
 .nav a{padding:8px 0;text-transform:uppercase;letter-spacing:.045em}
@@ -188,6 +190,7 @@ body:not(.evx-home) a:focus-visible,body:not(.evx-home) button:focus-visible,bod
   .report-nav{top:auto}
 }
 @media(max-width:600px){
+  .wordmark::before{flex-basis:32px;width:32px;height:32px}
   .institution-bar span:first-child{display:none}
   .institution-bar{grid-template-columns:1fr;justify-items:end}
   .masthead{height:80px;padding-top:14px;padding-bottom:12px}
