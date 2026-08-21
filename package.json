@@ -1,0 +1,19 @@
+{
+  "name": "engineer-view",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "hls.js": "^1.6.11",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9"
+  }
+}
