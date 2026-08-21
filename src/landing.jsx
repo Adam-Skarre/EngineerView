@@ -82,7 +82,7 @@ const signals = [
 ];
 
 function Mark() {
-  return <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>;
+  return <img className="brand-mark" src="assets/engineer-view-mark.png" alt="" width="48" height="48" />;
 }
 
 function Reveal({ children, className = "", delay = 0 }) {
