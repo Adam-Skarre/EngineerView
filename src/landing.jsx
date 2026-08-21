@@ -335,7 +335,7 @@ function Hero({ muted, setMuted, videoReady, setVideoReady }) {
             <em>prices it.</em>
           </h1>
           <p className="hero-lede">
-            Independent, source-linked research on power, AI infrastructure,
+            Source-linked research on power, AI infrastructure,
             industrial capacity, and the constraints shaping capital deployment.
           </p>
           <div className="hero-actions">
@@ -718,8 +718,8 @@ function Footer() {
           <a href="https://skartech.com">Skar Technologies ↗</a>
         </div>
         <div className="footer-note">
-          <p>New York</p>
-          <p>Independent analysis</p>
+          <p>Engineer View research</p>
+          <p>Source-linked analysis</p>
           <p>© 2026 Engineer View</p>
         </div>
       </div>
