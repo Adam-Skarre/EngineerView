@@ -50,39 +50,8 @@ const reports = [
   },
 ];
 
-const signals = [
-  {
-    value: "1.9%",
-    label: "Forecast U.S. electricity-load growth in 2026",
-    kind: "Forecast",
-    source: "U.S. EIA · March 2026",
-    href: "https://www.eia.gov/todayinenergy/detail.php?id=67344",
-  },
-  {
-    value: "4.4%",
-    label: "Estimated U.S. electricity used by data centers in 2023",
-    kind: "Historical estimate",
-    source: "DOE / LBNL · December 2024",
-    href: "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
-  },
-  {
-    value: "+41%",
-    label: "Reported change in distribution-transformer demand since 2019",
-    kind: "Reported change",
-    source: "U.S. DOE · March 2026",
-    href: "https://www.energy.gov/oe/distribution-transformer-webinar-text-alternative",
-  },
-  {
-    value: "17–20%",
-    label: "U.S. businesses reporting AI use, Dec. 2025–May 2026",
-    kind: "Survey range",
-    source: "U.S. Census Bureau · May 2026",
-    href: "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
-  },
-];
-
 function Mark() {
-  return <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>;
+  return <img className="brand-mark" src="assets/engineer-view-mark.png" alt="" width="48" height="48" />;
 }
 
 function Reveal({ children, className = "", delay = 0 }) {
@@ -136,30 +105,27 @@ function Hero() {
   const reducedMotion = useReducedMotion();
   return (
     <section className="hero">
-      <div className="hero-lines" aria-hidden="true">
-        {[0.25, 0.38, 0.51].map((delay) => (
-          <motion.i key={delay} initial={reducedMotion ? false : { scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: reducedMotion ? 0 : 1.2, delay }} />
-        ))}
-      </div>
       <div className="page-shell hero-grid">
         <motion.div className="hero-copy" initial={reducedMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.08 }}>
-          <p className="eyebrow">Engineer View · Market intelligence</p>
-          <h1>See the market<br />through an<br /><em>engineer’s view.</em></h1>
-          <p className="hero-lede">See the system before the market prices it. Source-linked research on power, AI infrastructure, industrial capacity, and the constraints shaping capital deployment.</p>
+          <p className="eyebrow">Independent market intelligence</p>
+          <h1>See the market through an <em>engineer’s view.</em></h1>
+          <p className="hero-lede">Source-linked research on the physical systems, operating constraints, and technical decisions shaping markets.</p>
           <div className="hero-actions">
             <a className="primary-link" href="transformer-critical-path.html">Read the latest view <ArrowRight size={16} /></a>
             <a className="quiet-link" href="#research">Explore research</a>
           </div>
         </motion.div>
-        <motion.aside className="latest-panel" initial={reducedMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.35 }}>
-          <div className="latest-meta"><span>Latest research</span><span>EV–004</span></div>
-          <p>Infrastructure Brief · 20 August 2026</p>
-          <h2><a href="transformer-critical-path.html">The transformer is now part of the critical path.</a></h2>
-          <p className="latest-summary">Equipment, specifications, production capacity, and utility acceptance now belong in time-to-power analysis.</p>
-          <a className="latest-open" href="transformer-critical-path.html">Open report <ArrowUpRight size={18} /></a>
+        <motion.aside className="hero-motion" initial={reducedMotion ? false : { opacity: 0, scale: 0.985 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reducedMotion ? 0 : 1, delay: 0.22 }}>
+          <video autoPlay muted loop playsInline preload="metadata" poster="assets/engineer-view-hero-4k.jpg" aria-label="Pulsing market data lines">
+            <source src="assets/market-data-motion.mp4" type="video/mp4" />
+          </video>
+          <a className="hero-motion-note" href="transformer-critical-path.html">
+            <span>Latest research · EV–004</span>
+            <strong>The transformer is now part of the critical path.</strong>
+            <ArrowUpRight size={18} />
+          </a>
         </motion.aside>
       </div>
-      <div className="page-shell hero-foot"><span>Evidence</span><i /><span>Systems</span><i /><span>Consequence</span></div>
     </section>
   );
 }
@@ -185,27 +151,6 @@ function Research() {
           ))}
         </div>
         <Reveal className="all-research-link"><a href="market-views.html">View all Market Views <ArrowRight size={16} /></a></Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Evidence() {
-  return (
-    <section className="evidence-section">
-      <div className="page-shell">
-        <Reveal className="evidence-heading">
-          <div><p className="section-label light">Current evidence</p><h2>Four signals in view.</h2></div>
-          <p>Every measure is labeled by type and linked directly to its primary public source.</p>
-        </Reveal>
-        <div className="evidence-grid">
-          {signals.map((signal, index) => (
-            <Reveal key={signal.label} delay={index * 0.05} className="evidence-card">
-              <span>{signal.kind}</span><strong>{signal.value}</strong><p>{signal.label}</p>
-              <a href={signal.href} target="_blank" rel="noopener noreferrer">{signal.source} <ArrowUpRight size={13} /></a>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -251,7 +196,7 @@ function Landing() {
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [menuOpen]);
-  return <div className="site"><Header open={menuOpen} setOpen={setMenuOpen} /><main><Hero /><Research /><Evidence /><Standard /></main><Footer /></div>;
+  return <div className="site"><Header open={menuOpen} setOpen={setMenuOpen} /><main><Hero /><Research /><Standard /></main><Footer /></div>;
 }
 
 createRoot(document.getElementById("root")).render(<Landing />);
