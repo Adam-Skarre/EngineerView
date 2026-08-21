@@ -143,9 +143,9 @@ function Hero() {
       </div>
       <div className="page-shell hero-grid">
         <motion.div className="hero-copy" initial={reducedMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.08 }}>
-          <p className="eyebrow">Market intelligence for physical systems</p>
-          <h1>See the system<br />before the market<br /><em>prices it.</em></h1>
-          <p className="hero-lede">Source-linked research on power, AI infrastructure, industrial capacity, and the constraints shaping capital deployment.</p>
+          <p className="eyebrow">Engineer View · Market intelligence</p>
+          <h1>See the market<br />through an<br /><em>engineer’s view.</em></h1>
+          <p className="hero-lede">See the system before the market prices it. Source-linked research on power, AI infrastructure, industrial capacity, and the constraints shaping capital deployment.</p>
           <div className="hero-actions">
             <a className="primary-link" href="transformer-critical-path.html">Read the latest view <ArrowRight size={16} /></a>
             <a className="quiet-link" href="#research">Explore research</a>
