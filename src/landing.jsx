@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
 
 const navigation = [
-  { label: "Research", href: "#research" },
+  { label: "Research", href: "analysis.html" },
   { label: "Market Views", href: "market-views.html" },
   { label: "Topics", href: "topics.html" },
   { label: "Methodology", href: "methodology.html" },
