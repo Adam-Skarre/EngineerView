@@ -120,6 +120,10 @@ body:not(.evx-home) a,body:not(.evx-home) button{transition:color .25s ease,back
 .market-view-hero-copy{padding:clamp(92px,10vw,150px) max(36px,calc((100vw - 1280px)/2)) clamp(92px,10vw,150px) max(36px,7vw)}
 .market-view-hero h1{font-weight:600;letter-spacing:-.075em}
 .market-view-hero h1 em{color:var(--copper)}
+.market-view-motion{position:relative;min-height:780px;overflow:hidden;background:#0b1c29}
+.market-view-motion video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.market-view-motion-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,28,45,.08),rgba(6,28,45,.36))}
+.market-view-motion p{position:absolute;z-index:1;top:24px;right:clamp(24px,5vw,72px);margin:0;color:#fff;font:500 10px/1.4 var(--mono);letter-spacing:2px;text-transform:uppercase;text-shadow:0 1px 18px rgba(0,0,0,.55)}
 .engineer-lens{background:radial-gradient(circle at 52% 43%,#a82a32 0 4%,#5d0c12 4.5% 22%,#210305 59%)}
 .engineer-lens:before,.engineer-lens:after{border-color:rgba(255,230,218,.32)}
 .lens-grid{background-image:linear-gradient(rgba(255,230,218,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,230,218,.08) 1px,transparent 1px)}
@@ -184,6 +188,7 @@ body:not(.evx-home) a:focus-visible,body:not(.evx-home) button:focus-visible,bod
   .nav{top:92px;background:#faf7f0;padding:30px max(24px,calc((100vw - 1280px)/2))}
   .market-view-hero{grid-template-columns:1fr}
   .market-view-hero-copy{padding-left:max(24px,calc((100vw - 1280px)/2));padding-right:max(24px,calc((100vw - 1280px)/2))}
+  .market-view-motion{min-height:66vw;max-height:720px}
   .method-principles{grid-template-columns:1fr 1fr}
   .report-layout{grid-template-columns:1fr;gap:40px}
   .report-nav{top:auto}
@@ -331,6 +336,86 @@ body:not(.evx-home) .nav a.active::after{transform:scaleX(1)}
     gap:22px;
     font-size:15px
   }
-  body:not(.evx-home) .nav.open{display:flex}
+body:not(.evx-home) .nav.open{display:flex}
   body:not(.evx-home) .menu-button{display:block;justify-self:end}
+}
+
+/* Minimal about page */
+.about-minimal{background:#fffdfa;color:#171514}
+.about-minimal-intro{
+  padding:clamp(84px,9vw,140px) max(24px,calc((100vw - 1380px)/2)) clamp(70px,8vw,112px);
+  border-bottom:1px solid var(--line)
+}
+.about-minimal-intro h1{
+  max-width:1050px;
+  margin:0;
+  font:600 clamp(58px,8vw,118px)/.92 var(--sans);
+  letter-spacing:-.065em
+}
+.about-minimal-intro>p:last-child{
+  max-width:790px;
+  margin:42px 0 0;
+  color:#5e6062;
+  font-size:clamp(19px,1.8vw,26px);
+  line-height:1.5
+}
+.about-facts{
+  padding:24px max(24px,calc((100vw - 1380px)/2)) 78px
+}
+.about-facts p{
+  margin:0;
+  padding:29px 0;
+  border-bottom:1px solid #dedbd5;
+  font-size:clamp(18px,1.5vw,23px);
+  letter-spacing:-.015em
+}
+.about-minimal-note{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:9vw;
+  padding:104px max(24px,calc((100vw - 1380px)/2));
+  border-top:1px solid var(--line);
+  background:#f3eee5
+}
+.about-minimal-note h2{
+  max-width:620px;
+  margin:0;
+  font:600 clamp(44px,5vw,78px)/.96 var(--sans);
+  letter-spacing:-.055em
+}
+.about-minimal-note>div:last-child{
+  max-width:680px;
+  color:#555b60;
+  font-size:20px;
+  line-height:1.7
+}
+.about-minimal-note>div:last-child p{margin:0}
+.about-minimal-note .text-link{display:inline-block;margin-top:22px;color:#681217}
+.about-minimal-disclosure{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:60px;
+  padding:54px max(24px,calc((100vw - 1380px)/2));
+  border-top:1px solid var(--line);
+  color:#686765;
+  font-size:13px
+}
+.about-minimal-disclosure p{max-width:850px;margin:0;line-height:1.65}
+.about-minimal-disclosure a{
+  padding-bottom:4px;
+  border-bottom:1px solid currentColor;
+  color:#681217;
+  font-weight:650;
+  white-space:nowrap
+}
+@media(max-width:800px){
+  .about-minimal-note{grid-template-columns:1fr;gap:40px;padding-top:76px;padding-bottom:76px}
+  .about-minimal-disclosure{align-items:flex-start;flex-direction:column;gap:28px}
+}
+@media(max-width:600px){
+  .about-minimal-intro{padding-top:64px;padding-bottom:64px}
+  .about-minimal-intro h1{font-size:clamp(48px,15vw,70px)}
+  .about-facts{padding-bottom:56px}
+  .about-facts p{padding:24px 0}
 }
