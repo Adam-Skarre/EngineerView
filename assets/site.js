@@ -16,15 +16,17 @@
     `;
   }
 
-  const faviconUrl = 'assets/engineer-view-mark.png?v=20260824-1';
-  document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach(link => {
+  const faviconUrl = '/favicon.ico?v=20260824-2';
+  document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach(link => {
     link.href = faviconUrl;
-    if (link.rel !== 'apple-touch-icon') link.type = 'image/png';
+    link.removeAttribute('type');
+  });
+  document.querySelectorAll('link[rel="apple-touch-icon"]').forEach(link => {
+    link.href = '/assets/engineer-view-mark.png?v=20260824-2';
   });
   if (!document.querySelector('link[rel="shortcut icon"]')) {
     const shortcutIcon = document.createElement('link');
     shortcutIcon.rel = 'shortcut icon';
-    shortcutIcon.type = 'image/png';
     shortcutIcon.href = faviconUrl;
     document.head.append(shortcutIcon);
   }
