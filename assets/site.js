@@ -16,6 +16,19 @@
     `;
   }
 
+  const faviconUrl = 'assets/engineer-view-mark.png?v=20260824-1';
+  document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach(link => {
+    link.href = faviconUrl;
+    if (link.rel !== 'apple-touch-icon') link.type = 'image/png';
+  });
+  if (!document.querySelector('link[rel="shortcut icon"]')) {
+    const shortcutIcon = document.createElement('link');
+    shortcutIcon.rel = 'shortcut icon';
+    shortcutIcon.type = 'image/png';
+    shortcutIcon.href = faviconUrl;
+    document.head.append(shortcutIcon);
+  }
+
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
   nav?.querySelectorAll('a[href="analysis.html"], a[href="methodology.html"]').forEach(link => link.remove());
