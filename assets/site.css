@@ -216,6 +216,10 @@ body:not(.evx-home) a:focus-visible,body:not(.evx-home) button:focus-visible,bod
 }
 @media(prefers-reduced-motion:reduce){body:not(.evx-home) *{scroll-behavior:auto!important;transition:none!important}}
 
+/* Visible institutional authorship */
+.report-byline{margin:18px 0 42px;position:relative;z-index:1;color:#d9c9c2;font:600 10px/1.5 var(--mono);letter-spacing:.11em;text-transform:uppercase}
+@media(max-width:600px){.report-byline{margin:16px 0 32px;font-size:9px}}
+
 /* Institutional motion layer */
 body:not(.evx-home) .masthead{transition:height .35s ease,box-shadow .35s ease,background .35s ease}
 body:not(.evx-home) .masthead.is-scrolled{box-shadow:0 14px 38px rgba(48,8,12,.1);background:rgba(250,247,240,.985)}
