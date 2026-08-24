@@ -120,8 +120,8 @@ body:not(.evx-home) a,body:not(.evx-home) button{transition:color .25s ease,back
 .market-view-hero-copy{padding:clamp(92px,10vw,150px) max(36px,calc((100vw - 1280px)/2)) clamp(92px,10vw,150px) max(36px,7vw)}
 .market-view-hero h1{font-weight:600;letter-spacing:-.075em}
 .market-view-hero h1 em{color:var(--copper)}
-.market-view-motion{position:relative;min-height:780px;overflow:hidden;background:#0b1c29}
-.market-view-motion video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.market-view-motion{position:relative;min-height:780px;overflow:hidden;background:#eef0f2}
+.market-view-motion video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}
 .market-view-motion-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,28,45,.08),rgba(6,28,45,.36))}
 .market-view-motion p{position:absolute;z-index:1;top:24px;right:clamp(24px,5vw,72px);margin:0;color:#fff;font:500 10px/1.4 var(--mono);letter-spacing:2px;text-transform:uppercase;text-shadow:0 1px 18px rgba(0,0,0,.55)}
 .engineer-lens{background:radial-gradient(circle at 52% 43%,#a82a32 0 4%,#5d0c12 4.5% 22%,#210305 59%)}
