@@ -79,6 +79,13 @@ const signals = [
   },
 ];
 
+const coverage = [
+  { number: "01", title: "Power & grid", copy: "Load growth, generation, transmission, interconnection, and the equipment behind time-to-power.", href: "grid-load-growth.html" },
+  { number: "02", title: "Infrastructure delivery", copy: "The specifications, supply chains, approvals, and execution risks that determine what can be built—and when.", href: "transformer-critical-path.html" },
+  { number: "03", title: "Industrial systems", copy: "Capacity, production constraints, and operating dependencies viewed as connected physical systems.", href: "topics.html" },
+  { number: "04", title: "Technology & AI", copy: "Technology adoption measured against the organizations, energy, infrastructure, and capital required to deploy it.", href: "ai-diffusion.html" },
+];
+
 function Mark() {
   return <img className="brand-mark" src="assets/engineer-view-mark.png" alt="" width="48" height="48" />;
 }
@@ -134,19 +141,16 @@ function Hero() {
   const reducedMotion = useReducedMotion();
   return (
     <section className="hero">
-      <div className="hero-lines" aria-hidden="true">
-        {[0.25, 0.38, 0.51].map((delay) => (
-          <motion.i key={delay} initial={reducedMotion ? false : { scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: reducedMotion ? 0 : 1.2, delay }} />
-        ))}
-      </div>
+      <img className="hero-media" src="assets/engineer-view-hero-4k.jpg" alt="Industrial infrastructure illuminated in copper and blue light" />
+      <div className="hero-shade" aria-hidden="true" />
       <div className="page-shell hero-grid">
         <motion.div className="hero-copy" initial={reducedMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.08 }}>
-          <p className="eyebrow">Power · Infrastructure · Industrial systems</p>
-          <h1>See the market<br />through an<br /><em>engineer’s view.</em></h1>
-          <p className="hero-lede">Source-linked research on power, infrastructure, industrial capacity, and technology—focused on the physical constraints that shape operating and capital decisions.</p>
+          <p className="eyebrow">Research by Skar Technologies</p>
+          <h1>See the systems<br />shaping the next<br /><em>investment cycle.</em></h1>
+          <p className="hero-lede">Engineer View studies the physical constraints beneath markets—power, infrastructure, industrial capacity, and technology—to clarify what can be built, scaled, and financed.</p>
           <div className="hero-actions">
             <a className="primary-link" href="transformer-critical-path.html">Read the latest view <ArrowRight size={16} /></a>
-            <a className="quiet-link" href="#research">Explore research</a>
+            <a className="quiet-link" href="#mandate">Our research mandate</a>
           </div>
         </motion.div>
         <motion.aside className="latest-panel" initial={reducedMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.35 }}>
@@ -157,7 +161,28 @@ function Hero() {
           <a className="latest-open" href="transformer-critical-path.html">Open report <ArrowUpRight size={18} /></a>
         </motion.aside>
       </div>
-      <div className="page-shell hero-foot"><span>Evidence</span><i /><span>Systems</span><i /><span>Consequence</span></div>
+      <div className="page-shell hero-foot"><span>Evidence</span><i /><span>Systems</span><i /><span>Consequence</span><strong>Independent, source-linked analysis</strong></div>
+    </section>
+  );
+}
+
+function Coverage() {
+  return (
+    <section className="coverage-section" id="mandate">
+      <div className="page-shell">
+        <Reveal className="coverage-heading">
+          <div><p className="section-label">Research mandate</p><h2>Follow the constraint.<br />Understand the consequence.</h2></div>
+          <p>Markets price outcomes. Engineer View examines the systems that make those outcomes possible—or prevent them—before translating the evidence into decision consequence.</p>
+        </Reveal>
+        <div className="coverage-grid">
+          {coverage.map((item, index) => (
+            <Reveal key={item.number} delay={index * 0.05} className="coverage-card">
+              <span>{item.number}</span><h3>{item.title}</h3><p>{item.copy}</p>
+              <a href={item.href} aria-label={`Explore ${item.title}`}>Explore <ArrowUpRight size={15} /></a>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -168,8 +193,8 @@ function Research() {
       <div className="page-shell">
         <Reveal className="section-intro">
           <p className="section-label">Current research</p>
-          <h2>Questions that move through systems.</h2>
-          <p>Each report separates the observed record, the analytical interpretation, and the decision consequence.</p>
+          <h2>Research for consequential decisions.</h2>
+          <p>Each report distinguishes the observed record, the analytical interpretation, and the implication for operators and capital.</p>
         </Reveal>
         <div className="report-list">
           {reports.map((report, index) => (
@@ -249,7 +274,7 @@ function Landing() {
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [menuOpen]);
-  return <div className="site"><Header open={menuOpen} setOpen={setMenuOpen} /><main><Hero /><Research /><Evidence /><Standard /></main><Footer /></div>;
+  return <div className="site"><Header open={menuOpen} setOpen={setMenuOpen} /><main><Hero /><Coverage /><Research /><Evidence /><Standard /></main><Footer /></div>;
 }
 
 createRoot(document.getElementById("root")).render(<Landing />);
