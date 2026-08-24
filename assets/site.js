@@ -18,6 +18,7 @@
 
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
+  nav?.querySelectorAll('a[href="analysis.html"], a[href="methodology.html"]').forEach(link => link.remove());
   menu?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     if (!menu.classList.contains('evx-menu')) menu.textContent = open ? 'Close' : 'Menu';
