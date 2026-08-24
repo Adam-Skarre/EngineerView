@@ -1,6 +1,21 @@
 (() => {
   document.documentElement.classList.add('js');
 
+  let siteFooter = document.querySelector('.footer');
+  if (!siteFooter) {
+    siteFooter = document.createElement('footer');
+    siteFooter.className = 'footer';
+    document.body.append(siteFooter);
+  }
+  if (!siteFooter.querySelector('.footer-grid')) {
+    siteFooter.innerHTML = `
+      <div class="footer-brand"><a class="wordmark light" href="index.html"><span>ENGINEER</span><i>VIEW</i></a><p>Always get an engineer’s view.</p></div>
+      <div><b>Research</b><a href="market-views.html">Market Views</a><a href="topics.html">Topics</a><a href="methodology.html">Methodology</a></div>
+      <div><b>Institution</b><a href="about.html">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
+      <div class="footer-note"><p>Source-linked analysis</p><p>© 2026 Engineer View</p></div>
+    `;
+  }
+
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
   menu?.addEventListener('click', () => {
