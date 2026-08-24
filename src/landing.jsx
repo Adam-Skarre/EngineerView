@@ -141,9 +141,9 @@ function Hero() {
       </div>
       <div className="page-shell hero-grid">
         <motion.div className="hero-copy" initial={reducedMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.08 }}>
-          <p className="eyebrow">Engineer View · Market intelligence</p>
+          <p className="eyebrow">Power · Infrastructure · Industrial systems</p>
           <h1>See the market<br />through an<br /><em>engineer’s view.</em></h1>
-          <p className="hero-lede">See the system before the market prices it. Source-linked research on power, AI infrastructure, industrial capacity, and the constraints shaping capital deployment.</p>
+          <p className="hero-lede">Source-linked research on power, infrastructure, industrial capacity, and technology—focused on the physical constraints that shape operating and capital decisions.</p>
           <div className="hero-actions">
             <a className="primary-link" href="transformer-critical-path.html">Read the latest view <ArrowRight size={16} /></a>
             <a className="quiet-link" href="#research">Explore research</a>
@@ -193,8 +193,8 @@ function Evidence() {
     <section className="evidence-section">
       <div className="page-shell">
         <Reveal className="evidence-heading">
-          <div><p className="section-label light">Current evidence</p><h2>Four signals in view.</h2></div>
-          <p>Every measure is labeled by type and linked directly to its primary public source.</p>
+          <div><p className="section-label light">Current infrastructure signals</p><h2>Four measures in view.</h2></div>
+          <p>Each measure is labeled by type, dated, and linked directly to its primary public source.</p>
         </Reveal>
         <div className="evidence-grid">
           {signals.map((signal, index) => (
@@ -230,7 +230,7 @@ function Footer() {
         <div className="footer-brand"><a className="brand light" href="index.html"><Mark /><span>ENGINEER VIEW</span></a><p>Always get an engineer’s view.</p></div>
         <div><strong>Research</strong><a href="market-views.html">Market Views</a><a href="topics.html">Topics</a><a href="methodology.html">Methodology</a></div>
         <div><strong>Institution</strong><a href="about.html">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
-        <div className="footer-note"><p>Source-linked analysis</p><p>© 2026 Engineer View</p></div>
+        <div className="footer-note"><p>Research by Skar Technologies</p><p>© 2026 Engineer View</p></div>
       </div>
     </footer>
   );
