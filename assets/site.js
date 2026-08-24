@@ -33,9 +33,6 @@
 
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
-  document.querySelectorAll('.report-byline').forEach(byline => {
-    byline.textContent = 'Research by Skar Technologies';
-  });
   nav?.querySelectorAll('a[href="analysis.html"], a[href="methodology.html"]').forEach(link => link.remove());
   menu?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
