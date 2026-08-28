@@ -4,9 +4,9 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
 
 const navigation = [
-  { label: "Market Views", href: "market-views.html" },
-  { label: "Topics", href: "topics.html" },
-  { label: "About", href: "about.html" },
+  { label: "Market Views", href: "/market-views/" },
+  { label: "Topics", href: "/topics/" },
+  { label: "About", href: "/about/" },
 ];
 
 const reports = [
@@ -16,7 +16,7 @@ const reports = [
     date: "20 August 2026",
     title: "The transformer is now part of the critical path.",
     description: "Why equipment, specifications, production capacity, and utility acceptance now belong in time-to-power analysis.",
-    href: "transformer-critical-path.html",
+    href: "/transformer-critical-path/",
     topics: "Power · Infrastructure",
   },
   {
@@ -25,7 +25,7 @@ const reports = [
     date: "August 2026",
     title: "Three signals. One systems test.",
     description: "Private credit, AI infrastructure, and public-market valuation examined through the structures beneath the headline.",
-    href: "market-views-august-2026.html",
+    href: "/market-views-august-2026/",
     topics: "Capital · Energy · Technology",
   },
   {
@@ -34,7 +34,7 @@ const reports = [
     date: "Research series",
     title: "The grid was designed for yesterday’s load.",
     description: "Data-center electricity demand, regional constraints, and a scenario-led framework for time-to-power.",
-    href: "grid-load-growth.html",
+    href: "/grid-load-growth/",
     topics: "Energy · Data centers",
   },
   {
@@ -43,7 +43,7 @@ const reports = [
     date: "Research series",
     title: "The enterprise AI gap is organizational.",
     description: "What current Census data says about firm size, functional breadth, and the capacity to deploy AI.",
-    href: "ai-diffusion.html",
+    href: "/ai-diffusion/",
     topics: "AI · Enterprise systems",
   },
 ];
@@ -80,7 +80,7 @@ const signals = [
 ];
 
 function Mark() {
-  return <img className="brand-mark" src="assets/engineer-view-mark.png" alt="" width="48" height="48" />;
+  return <img className="brand-mark" src="/assets/engineer-view-mark.png" alt="" width="48" height="48" />;
 }
 
 function Reveal({ children, className = "", delay = 0 }) {
@@ -103,7 +103,7 @@ function Header({ open, setOpen }) {
     <>
       <header className="site-header">
         <div className="page-shell header-inner">
-          <a className="brand" href="index.html" aria-label="Engineer View home"><Mark /><span>ENGINEER VIEW</span></a>
+          <a className="brand" href="/" aria-label="Engineer View home"><Mark /><span>ENGINEER VIEW</span></a>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {navigation.map((item) => <a key={item.label} href={item.href}>{item.label}</a>)}
           </nav>
@@ -145,16 +145,16 @@ function Hero() {
           <h1>See the market<br />through an<br /><em>engineer’s view.</em></h1>
           <p className="hero-lede">Source-linked research on power, infrastructure, industrial capacity, and technology—focused on the physical constraints that shape operating and capital decisions.</p>
           <div className="hero-actions">
-            <a className="primary-link" href="transformer-critical-path.html">Read the latest view <ArrowRight size={16} /></a>
+            <a className="primary-link" href="/transformer-critical-path/">Read the latest view <ArrowRight size={16} /></a>
             <a className="quiet-link" href="#research">Explore research</a>
           </div>
         </motion.div>
         <motion.aside className="latest-panel" initial={reducedMotion ? false : { opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: reducedMotion ? 0 : 0.85, delay: 0.35 }}>
           <div className="latest-meta"><span>Latest research</span><span>EV–004</span></div>
           <p>Infrastructure Brief · 20 August 2026</p>
-          <h2><a href="transformer-critical-path.html">The transformer is now part of the critical path.</a></h2>
+          <h2><a href="/transformer-critical-path/">The transformer is now part of the critical path.</a></h2>
           <p className="latest-summary">Equipment, specifications, production capacity, and utility acceptance now belong in time-to-power analysis.</p>
-          <a className="latest-open" href="transformer-critical-path.html">Open report <ArrowUpRight size={18} /></a>
+          <a className="latest-open" href="/transformer-critical-path/">Open report <ArrowUpRight size={18} /></a>
         </motion.aside>
       </div>
       <div className="page-shell hero-foot"><span>Evidence</span><i /><span>Systems</span><i /><span>Consequence</span></div>
@@ -182,7 +182,7 @@ function Research() {
             </Reveal>
           ))}
         </div>
-        <Reveal className="all-research-link"><a href="market-views.html">View all Market Views <ArrowRight size={16} /></a></Reveal>
+        <Reveal className="all-research-link"><a href="/market-views/">View all Market Views <ArrowRight size={16} /></a></Reveal>
       </div>
     </section>
   );
@@ -216,7 +216,7 @@ function Standard() {
         <Reveal><p className="section-label">Research standard</p><h2>Evidence before interpretation.</h2></Reveal>
         <Reveal className="standard-copy" delay={0.08}>
           <p>Engineer View follows a visible chain from primary evidence to system interpretation and decision consequence. Forecasts remain forecasts; estimates remain estimates; judgment stays visible.</p>
-          <a href="methodology.html">Read the methodology <ArrowRight size={16} /></a>
+          <a href="/methodology/">Read the methodology <ArrowRight size={16} /></a>
         </Reveal>
       </div>
     </section>
@@ -227,9 +227,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="page-shell footer-grid">
-        <div className="footer-brand"><a className="brand light" href="index.html"><Mark /><span>ENGINEER VIEW</span></a><p>Always get an engineer’s view.</p></div>
-        <div><strong>Research</strong><a href="market-views.html">Market Views</a><a href="topics.html">Topics</a><a href="methodology.html">Methodology</a></div>
-        <div><strong>Institution</strong><a href="about.html">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
+        <div className="footer-brand"><a className="brand light" href="/"><Mark /><span>ENGINEER VIEW</span></a><p>Always get an engineer’s view.</p></div>
+        <div><strong>Research</strong><a href="/market-views/">Market Views</a><a href="/topics/">Topics</a><a href="/methodology/">Methodology</a></div>
+        <div><strong>Institution</strong><a href="/about/">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
         <div className="footer-note"><p>Research by Skar Technologies</p><p>© 2026 Engineer View</p></div>
       </div>
     </footer>
