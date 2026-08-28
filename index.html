@@ -25,6 +25,11 @@
     <meta name="twitter:image" content="https://engineerview.com/assets/engineer-view-og-2026.png" />
     <title>Engineer View — Research on physical systems</title>
     <link rel="canonical" href="https://engineerview.com/" />
+    <script>
+      if (location.pathname.endsWith("/index.html")) {
+        history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+      }
+    </script>
     <link rel="icon" href="/assets/mark.svg?v=20260827-1" type="image/svg+xml" />
     <link rel="icon" href="/assets/engineer-view-mark.png?v=20260827-1" type="image/png" />
     <link rel="shortcut icon" href="/favicon.ico?v=20260827-1" />
@@ -35,7 +40,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/landing.css?v=20260821-2" />
+    <link rel="stylesheet" href="/assets/landing.css?v=20260821-2" />
   </head>
   <body>
     <div id="root">
@@ -43,10 +48,10 @@
         <main class="noscript">
           <p>Engineer View</p>
           <h1>See the system before the market prices it.</h1>
-          <a href="market-views.html">Read the market views</a>
+          <a href="/market-views/">Read the market views</a>
         </main>
       </noscript>
     </div>
-    <script type="module" src="assets/landing.js?v=20260821-2"></script>
+    <script type="module" src="/assets/landing.js?v=20260821-2"></script>
   </body>
 </html>

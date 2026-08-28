@@ -1,6 +1,10 @@
 (() => {
   document.documentElement.classList.add('js');
 
+  if (location.pathname.endsWith('/index.html')) {
+    history.replaceState(null, '', location.pathname.slice(0, -10) + location.search + location.hash);
+  }
+
   let siteFooter = document.querySelector('.footer');
   if (!siteFooter) {
     siteFooter = document.createElement('footer');
@@ -9,31 +13,34 @@
   }
   if (!siteFooter.querySelector('.footer-grid')) {
     siteFooter.innerHTML = `
-      <div class="footer-brand"><a class="wordmark light" href="index.html"><span>ENGINEER</span><i>VIEW</i></a><p>Always get an engineer’s view.</p></div>
-      <div><b>Research</b><a href="market-views.html">Market Views</a><a href="topics.html">Topics</a><a href="methodology.html">Methodology</a></div>
-      <div><b>Institution</b><a href="about.html">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
+      <div class="footer-brand"><a class="wordmark light" href="/"><span>ENGINEER</span><i>VIEW</i></a><p>Always get an engineer’s view.</p></div>
+      <div><b>Research</b><a href="/market-views/">Market Views</a><a href="/topics/">Topics</a><a href="/methodology/">Methodology</a></div>
+      <div><b>Institution</b><a href="/about/">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
       <div class="footer-note"><p>Research by Skar Technologies</p><p>© 2026 Engineer View</p></div>
     `;
   }
 
-  const faviconUrl = '/favicon.ico?v=20260824-2';
-  document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach(link => {
+  const faviconUrl = '/assets/mark.svg?v=20260827-1';
+  document.querySelectorAll('link[rel="icon"]').forEach(link => {
     link.href = faviconUrl;
-    link.removeAttribute('type');
+    link.type = 'image/svg+xml';
+  });
+  document.querySelectorAll('link[rel="shortcut icon"]').forEach(link => {
+    link.href = '/favicon.ico?v=20260827-1';
   });
   document.querySelectorAll('link[rel="apple-touch-icon"]').forEach(link => {
-    link.href = '/assets/engineer-view-mark.png?v=20260824-2';
+    link.href = '/assets/engineer-view-mark.png?v=20260827-1';
   });
   if (!document.querySelector('link[rel="shortcut icon"]')) {
     const shortcutIcon = document.createElement('link');
     shortcutIcon.rel = 'shortcut icon';
-    shortcutIcon.href = faviconUrl;
+    shortcutIcon.href = '/favicon.ico?v=20260827-1';
     document.head.append(shortcutIcon);
   }
 
   const menu = document.querySelector('[data-menu]');
   const nav = document.querySelector('[data-nav]');
-  nav?.querySelectorAll('a[href="analysis.html"], a[href="methodology.html"]').forEach(link => link.remove());
+  nav?.querySelectorAll('a[href="/analysis/"], a[href="/methodology/"]').forEach(link => link.remove());
   menu?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     if (!menu.classList.contains('evx-menu')) menu.textContent = open ? 'Close' : 'Menu';

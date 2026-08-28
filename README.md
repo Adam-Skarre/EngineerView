@@ -8,17 +8,19 @@ Production domain: [engineerview.com](https://engineerview.com)
 
 ## Publication structure
 
-- `index.html` — production shell for the React research portal
+- `/` — production shell for the React research portal
 - `src/landing.jsx` — research discovery, filtering, navigation, motion, and video playback
 - `assets/landing.css` — institutional visual system and responsive behavior
 - `assets/landing.js` — production bundle served by GitHub Pages
-- `research.html` — searchable research library
-- `topics.html` — coverage areas
-- `methodology.html` — research standards and disclosures
-- `grid-load-growth.html` — Engineering Outlook EV–001
-- `ai-diffusion.html` — Research Note EV–002
-- `industrial-readiness.html` — Field Guide EV–003
-- `transformer-critical-path.html` — Infrastructure Brief EV–004
+- `/market-views/` — searchable research library
+- `/topics/` — coverage areas
+- `/methodology/` — research standards and disclosures
+- `/grid-load-growth/` — Engineering Outlook EV–001
+- `/ai-diffusion/` — Research Note EV–002
+- `/industrial-readiness/` — Field Guide EV–003
+- `/transformer-critical-path/` — Infrastructure Brief EV–004
+
+Public pages use directory-based routes so production URLs remain extensionless. Legacy `.html` files redirect to their clean equivalents for compatibility.
 
 `RESEARCH_RECORD.md` records the primary evidence behind the current infrastructure brief so forecasts, observed data, and Engineer View analysis remain distinct.
 
