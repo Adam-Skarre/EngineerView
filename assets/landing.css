@@ -107,14 +107,12 @@ button { font: inherit; }
 .mobile-nav-inner { display: flex; flex-direction: column; justify-content: center; min-height: 100%; padding-block: 30px; }
 .mobile-nav a {
   display: grid;
-  grid-template-columns: 42px 1fr auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   padding: 17px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   font: 400 clamp(32px, 9vw, 50px)/1 "Instrument Serif", Georgia, serif;
 }
-.mobile-nav a span { font: 600 9px/1 "Inter", Arial, sans-serif; letter-spacing: 0.12em; opacity: 0.66; }
-
 .hero {
   position: relative;
   min-height: calc(100vh - 76px);
@@ -224,6 +222,8 @@ button { font: inherit; }
 .brand.light { color: var(--white); }
 .footer-brand p, .footer-note p { margin: 22px 0 0; font-size: 11px; }
 .footer-grid > div:not(.footer-brand):not(.footer-note) { display: flex; flex-direction: column; gap: 10px; font-size: 11px; }
+.footer-grid > div a { display: inline-flex; width: fit-content; align-items: center; gap: 6px; }
+.footer-grid > div a svg { flex: 0 0 auto; }
 .footer-grid strong { margin-bottom: 7px; color: #e6cacc; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
 .footer-note { text-align: right; }
 .footer-note p { margin: 0 0 9px; }

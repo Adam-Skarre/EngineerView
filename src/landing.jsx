@@ -119,7 +119,7 @@ function Header({ open, setOpen }) {
             <div className="page-shell mobile-nav-inner">
               {navigation.map((item, index) => (
                 <motion.a key={item.label} href={item.href} onClick={() => setOpen(false)} initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * index + 0.08 }}>
-                  <span>0{index + 1}</span>{item.label}<ArrowUpRight size={18} />
+                  {item.label}<ArrowUpRight size={18} />
                 </motion.a>
               ))}
             </div>
@@ -229,7 +229,7 @@ function Footer() {
       <div className="page-shell footer-grid">
         <div className="footer-brand"><a className="brand light" href="/"><Mark /><span>ENGINEER VIEW</span></a><p>Always get an engineer’s view.</p></div>
         <div><strong>Research</strong><a href="/market-views/">Market Views</a><a href="/topics/">Topics</a><a href="/methodology/">Methodology</a></div>
-        <div><strong>Institution</strong><a href="/about/">About</a><a href="https://skartech.com">Skar Technologies ↗</a></div>
+        <div><strong>Institution</strong><a href="/about/">About</a><a href="https://skartech.com">Skar Technologies <ArrowUpRight size={13} aria-hidden="true" /></a></div>
         <div className="footer-note"><p>Research by Skar Technologies</p><p>© 2026 Engineer View</p></div>
       </div>
     </footer>
