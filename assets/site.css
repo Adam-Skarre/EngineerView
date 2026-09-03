@@ -359,7 +359,7 @@ body:not(.evx-home) .nav.open{display:flex}
   padding:clamp(86px,9vw,140px) max(24px,calc((100vw - 1540px)/2));
   display:grid;
   place-items:center;
-  background:#8b1f26;
+  background:#681217;
   color:#fff;
   text-align:center
 }
@@ -380,7 +380,7 @@ body:not(.evx-home) .nav.open{display:flex}
 .about-minimal-details article{max-width:390px}
 .about-minimal-details h2{
   margin:0 0 8px;
-  color:#8b1f26;
+  color:#681217;
   font:650 clamp(20px,1.6vw,25px)/1.25 var(--sans);
   letter-spacing:-.025em
 }
@@ -390,7 +390,7 @@ body:not(.evx-home) .nav.open{display:flex}
   font-size:16px;
   line-height:1.55
 }
-.about-minimal-details a{display:inline-block;margin-top:12px;color:#8b1f26;font-weight:650;border-bottom:1px solid currentColor;padding-bottom:3px}
+.about-minimal-details a{display:inline-block;margin-top:12px;color:#681217;font-weight:650;border-bottom:1px solid currentColor;padding-bottom:3px}
 .about-minimal-disclosure{
   display:flex;
   justify-content:space-between;
